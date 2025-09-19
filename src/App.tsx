@@ -5,6 +5,12 @@ import { MenuView } from './components/MenuView';
 import { CartView } from './components/CartView';
 import { KitchenView } from './components/KitchenView';
 import { AdminView } from './components/AdminView';
+import { CostCalculator } from './components/CostCalculator';
+import { ArchitectureDiagram } from './components/ArchitectureDiagram';
+import { AdvancedAnalytics } from './components/AdvancedAnalytics';
+import { InventoryManager } from './components/InventoryManager';
+import { ProductCustomizer } from './components/ProductCustomizer';
+import { NotificationSystem } from './components/NotificationSystem';
 import { TablesView } from './components/TablesView';
 import { TotemView } from './components/TotemView';
 import { BackofficeView } from './components/BackofficeView';
@@ -23,6 +29,10 @@ import { View, PaymentInfo, Table, UserProfile } from './types';
 
 function App() {
   const [currentView, setCurrentView] = useState<View>('tables');
+  const [showCostCalculator, setShowCostCalculator] = useState(false);
+  const [showArchitecture, setShowArchitecture] = useState(false);
+  const [showCustomizer, setShowCustomizer] = useState(false);
+  const [customizerProduct, setCustomizerProduct] = useState<any>(null);
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [showTableOrderModal, setShowTableOrderModal] = useState(false);
   const [showBackoffice, setShowBackoffice] = useState(false);
@@ -105,7 +115,25 @@ function App() {
   };
 
   const handleAddToCart = (product: any) => {
-    cart.addItem(product);
+    // Check if product is customizable
+    if (product.customizable) {
+      setCustomizerProduct(product);
+      setShowCustomizer(true);
+    } else {
+      cart.addItem(product);
+    }
+  };
+
+  const handleCustomizeProduct = (customization: any) => {
+    const customizedProduct = {
+      ...customizerProduct,
+      customization,
+      price: customization.totalPrice,
+      name: `${customizerProduct.name} (Personalizado)`
+    };
+    cart.addItem(customizedProduct);
+    setShowCustomizer(false);
+    setCustomizerProduct(null);
   };
 
   const handleCheckout = (info?: { 
@@ -262,6 +290,18 @@ function App() {
           />
         );
       
+      case 'analytics':
+        return <AdvancedAnalytics />;
+      
+      case 'inventory':
+        return <InventoryManager />;
+      
+      case 'costs':
+        return <CostCalculator />;
+      
+      case 'architecture':
+        return <ArchitectureDiagram />;
+      
       default:
         return null;
     }
@@ -277,6 +317,8 @@ function App() {
         userProfile={userProfile}
         onLogout={handleLogout}
       />
+      
+      <NotificationSystem />
       
       <main>
         {renderCurrentView()}
@@ -299,6 +341,17 @@ function App() {
       {showBackoffice && (
         <BackofficeView
           onClose={() => setShowBackoffice(false)}
+        />
+      )}
+
+      {showCustomizer && customizerProduct && (
+        <ProductCustomizer
+          product={customizerProduct}
+          onCustomize={handleCustomizeProduct}
+          onClose={() => {
+            setShowCustomizer(false);
+            setCustomizerProduct(null);
+          }}
         />
       )}
 
