@@ -3,6 +3,7 @@ const cors = require('cors')
 const helmet = require('helmet')
 const { Server } = require('socket.io')
 const http = require('http')
+const AWSArchitectureDiagramService = require('./aws-diagram-service')
 
 const app = express()
 const server = http.createServer(app)
@@ -12,6 +13,8 @@ const io = new Server(server, {
     methods: ['GET', 'POST']
   }
 })
+
+const awsDiagramService = new AWSArchitectureDiagramService()
 
 app.use(helmet())
 app.use(cors())
@@ -89,6 +92,44 @@ app.post('/api/calculate-cost', (req, res) => {
 
 app.get('/api/pricing-plans', (req, res) => {
   res.json(costCalculator.infrastructure)
+})
+
+// AWS Architecture Diagram endpoints
+app.get('/api/architecture/pdv', (req, res) => {
+  try {
+    const architecture = awsDiagramService.generatePDVArchitecture()
+    res.json(architecture)
+  } catch (error) {
+    res.status(500).json({ error: error.message })
+  }
+})
+
+app.get('/api/architecture/costs', (req, res) => {
+  try {
+    const architecture = awsDiagramService.generatePDVArchitecture()
+    const costs = awsDiagramService.generateCostBreakdown(architecture)
+    res.json(costs)
+  } catch (error) {
+    res.status(500).json({ error: error.message })
+  }
+})
+
+app.get('/api/architecture/deployment', (req, res) => {
+  try {
+    const deployment = awsDiagramService.generateDeploymentDiagram()
+    res.json(deployment)
+  } catch (error) {
+    res.status(500).json({ error: error.message })
+  }
+})
+
+app.get('/api/architecture/security', (req, res) => {
+  try {
+    const security = awsDiagramService.generateSecurityDiagram()
+    res.json(security)
+  } catch (error) {
+    res.status(500).json({ error: error.message })
+  }
 })
 
 // Real-time features

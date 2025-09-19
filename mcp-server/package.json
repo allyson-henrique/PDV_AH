@@ -1,12 +1,39 @@
 {
   "name": "mcp-server",
   "version": "1.0.0",
+  "description": "MCP Server for PDV System with AWS Architecture Diagrams",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "keywords": [
+    "mcp",
+    "pdv",
+    "aws",
+    "architecture",
+    "diagrams"
+  ],
+  "author": "Allyson Henrique",
+  "license": "MIT",
+  "dependencies": {
+    "@aws-sdk/client-application-auto-scaling": "^3.658.1",
+    "@aws-sdk/client-cloudformation": "^3.658.1",
+    "@aws-sdk/client-ec2": "^3.658.1",
+    "@aws-sdk/client-lambda": "^3.658.1",
+    "@aws-sdk/client-rds": "^3.658.1",
+    "aws-sdk": "^2.1691.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.2",
+    "helmet": "^7.1.0",
+    "socket.io": "^4.7.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }
