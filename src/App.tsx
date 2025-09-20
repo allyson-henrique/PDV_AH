@@ -1,30 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import { Header } from './components/Header';
-import { LoginView } from './components/LoginView';
-import { MenuView } from './components/MenuView';
-import { CartView } from './components/CartView';
-import { KitchenView } from './components/KitchenView';
-import { AdminView } from './components/AdminView';
-import { CostCalculator } from './components/CostCalculator';
-import { ArchitectureDiagram } from './components/ArchitectureDiagram';
-import { AdvancedAnalytics } from './components/AdvancedAnalytics';
-import { InventoryManager } from './components/InventoryManager';
-import { ProductCustomizer } from './components/ProductCustomizer';
-import { NotificationSystem } from './components/NotificationSystem';
-import { TablesView } from './components/TablesView';
-import { TotemView } from './components/TotemView';
-import { BackofficeView } from './components/BackofficeView';
-import { PaymentModal } from './components/PaymentModal';
-import { TableOrderModal } from './components/TableOrderModal';
-import { OfflineIndicator } from './components/OfflineIndicator';
-import { PWAInstallPrompt } from './components/PWAInstallPrompt';
+// Layout components
+import { Header, OfflineIndicator, PWAInstallPrompt, NotificationSystem } from './components/layout';
+
+// Modal components
+import { PaymentModal, TableOrderModal } from './components/modals';
+
+// Page components
+import { LoginView } from './pages/LoginView';
+
+// Feature components
+import { MenuView, CartView, TablesView, ProductCustomizer } from './features/pos';
+import { KitchenView, TotemView } from './features/kitchen';
+import { AdminView, BackofficeView } from './features/admin';
+import { AdvancedAnalytics, CostCalculator, ArchitectureDiagram } from './features/analytics';
+import { InventoryManager } from './features/inventory';
 import { useCartOffline } from './hooks/useCartOffline';
 import { useOrders } from './hooks/useOrders';
 import { useTables } from './hooks/useTables';
 import { useOffline } from './hooks/useOffline';
-import { mockProducts } from './data/mockProducts';
+import { mockProducts } from './shared/constants';
 import { offlineManager } from './services/offlineManager';
-import { registerServiceWorker } from './utils/pwaUtils';
+import { registerServiceWorker } from './shared/utils/pwaUtils';
 import { View, PaymentInfo, Table, UserProfile } from './types';
 
 function App() {

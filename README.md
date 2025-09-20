@@ -1,5 +1,7 @@
 # 🍽️ Sistema PDV Allyson Henrique
 
+[![q-developer-quest-tdc-2025](https://img.shields.io/badge/q--developer--quest--tdc--2025-orange?style=for-the-badge)](https://github.com/allysonhenrique/pdv-allyson-henrique)
+
 Sistema de Ponto de Venda (PDV) moderno e responsivo com funcionalidades offline, desenvolvido como Progressive Web App (PWA).
 
 ## 💡 O Problema
@@ -204,47 +206,73 @@ npm run lint             # Linting e formatação
 npm run mcp:server       # Servidor de produção
 ```
 
-## 📦 Estrutura do Projeto
+## 📦 Estrutura do Projeto (Organizada)
 
 ```
 src/
-├── components/          # Componentes React
-│   ├── ProductCustomizer.tsx    # Sistema de customização
-│   ├── AdvancedAnalytics.tsx    # Analytics com IA
-│   ├── InventoryManager.tsx     # Gestão de estoque
-│   └── ...
-├── hooks/              # Custom hooks
-├── services/           # Serviços (API, offline, etc.)
-├── types/              # Definições TypeScript
-├── test/               # Testes
+├── components/          # Componentes base
+│   ├── layout/         # Layout e navegação
+│   │   ├── Header.tsx
+│   │   ├── NotificationSystem.tsx
+│   │   └── OfflineIndicator.tsx
+│   ├── modals/         # Modais reutilizáveis
+│   │   ├── PaymentModal.tsx
+│   │   └── TableOrderModal.tsx
+│   └── ui/             # Componentes UI base
+├── features/            # Features organizadas por domínio
+│   ├── pos/            # Ponto de Venda
+│   │   ├── MenuView.tsx
+│   │   ├── CartView.tsx
+│   │   ├── ProductCustomizer.tsx
+│   │   └── TablesView.tsx
+│   ├── kitchen/        # Cozinha e Totem
+│   │   ├── KitchenView.tsx
+│   │   └── TotemView.tsx
+│   ├── analytics/      # Analytics e Relatórios
+│   │   ├── AdvancedAnalytics.tsx
+│   │   ├── CostCalculator.tsx
+│   │   └── AWSArchitectureViewer.tsx
+│   ├── inventory/      # Gestão de Estoque
+│   │   └── InventoryManager.tsx
+│   └── admin/          # Administração
+│       ├── AdminView.tsx
+│       └── BackofficeView.tsx
+├── pages/               # Páginas principais
+│   └── LoginView.tsx
+├── shared/              # Código compartilhado
+│   ├── constants/      # Constantes globais
+│   │   └── mockProducts.ts
+│   └── utils/          # Utilitários
+│       └── pwaUtils.ts
+├── hooks/               # Custom hooks
+├── services/            # Serviços (API, offline, etc.)
+├── types/               # Definições TypeScript
+├── test/                # Testes
 │   ├── unit/           # Testes unitários
 │   ├── integration/    # Testes de integração
 │   └── setup.ts        # Configuração de testes
-├── lib/                # Configurações de bibliotecas
-├── utils/              # Utilitários
-└── graphql/            # Queries e mutations GraphQL
+└── lib/                 # Configurações de bibliotecas
 
-mcp-server/             # Servidor MCP
-├── index.js            # API principal
-├── routes/             # Rotas da API
-├── services/           # Serviços do servidor
-└── utils/              # Utilitários do servidor
+mcp-server/              # Servidor MCP com AWS
+├── index.js             # API principal
+├── aws-diagram-service.js # Serviço de diagramas AWS
+└── package.json         # Dependências do servidor
 
 tests/
-└── e2e/                # Testes End-to-End
+└── e2e/                 # Testes End-to-End
     └── order-flow.spec.ts
 
 public/
-├── sw.js               # Service Worker
-├── manifest.json       # PWA Manifest
-└── icons/              # Ícones da aplicação
+├── sw.js                # Service Worker
+├── manifest.json        # PWA Manifest
+└── icons/               # Ícones da aplicação
 
 supabase/
-└── migrations/         # Migrações do banco de dados
+└── migrations/          # Migrações do banco de dados
 
 # Configurações
-├── vitest.config.ts    # Configuração Vitest
-├── playwright.config.ts # Configuração Playwright
+├── vitest.config.ts     # Configuração Vitest
+├── playwright.config.ts  # Configuração Playwright
 └── ...
 ```
 
