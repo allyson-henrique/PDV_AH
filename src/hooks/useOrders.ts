@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from 'react';
-import { Order, CartItem, PaymentInfo } from '../types';
-import { appSyncService } from '../services/appSyncService';
+import { Order, CartItem, PaymentInfo } from '../../types';
+import { appSyncService } from '../../services/appSyncService';
 
 export const useOrders = () => {
   const [orders, setOrders] = useState<Order[]>([]);

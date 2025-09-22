@@ -1,6 +1,6 @@
 import React from 'react';
 import { Users, Clock, User, Utensils } from 'lucide-react';
-import { Table } from '../types';
+import { Table } from '../../types';
 
 interface TableCardProps {
   table: Table;

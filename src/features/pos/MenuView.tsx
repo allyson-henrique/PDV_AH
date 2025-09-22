@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Search, ArrowLeft, Users, Filter } from 'lucide-react';
-import { Product, Table } from '../types';
+import { Product, Table } from '../../types';
 import { ProductCard } from './ProductCard';
 
 interface MenuViewProps {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { TrendingUp, DollarSign, ShoppingBag, Clock, Settings, FileText, Printer, CreditCard } from 'lucide-react';
-import { Order } from '../types';
+import { Order } from '../../types';
 
 interface AdminViewProps {
   orders: Order[];

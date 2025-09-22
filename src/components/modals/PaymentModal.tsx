@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { X, CreditCard, Smartphone, Banknote, Check } from 'lucide-react';
-import { PaymentInfo } from '../types';
+import { PaymentInfo } from '../../types';
 
 interface PaymentModalProps {
   isOpen: boolean;

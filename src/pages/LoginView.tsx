@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ChefHat, User, Lock, Eye, EyeOff } from 'lucide-react';
-import { UserProfile } from '../types';
+import { UserProfile } from '../../types';
 
 interface LoginViewProps {
   onLogin: (profile: UserProfile) => void;

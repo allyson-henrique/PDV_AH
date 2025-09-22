@@ -3,7 +3,7 @@ import { createOrder, updateOrder, createOrderItem } from '../graphql/mutations'
 import { listOrders, ordersByStatus } from '../graphql/queries';
 import { onCreateOrder, onUpdateOrder } from '../graphql/subscriptions';
 import { v4 as uuidv4 } from 'uuid';
-import type { CartItem, PaymentInfo, Order } from '../types';
+import type { CartItem, PaymentInfo, Order } from '../../types';
 
 export class AppSyncService {
   private subscriptions: any[] = [];

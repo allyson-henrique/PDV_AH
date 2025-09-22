@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { useCart } from './useCart';
 import { useOffline } from './useOffline';
-import { CartItem, PaymentInfo } from '../types';
+import { CartItem, PaymentInfo } from '../../types';
 
 export const useCartOffline = () => {
   const cart = useCart();

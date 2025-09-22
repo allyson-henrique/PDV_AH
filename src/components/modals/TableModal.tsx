@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { X, Users, Clock, Utensils, Trash2, Edit3 } from 'lucide-react';
-import { Table } from '../types';
+import { Table } from '../../types';
 
 interface TableModalProps {
   isOpen: boolean;

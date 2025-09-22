@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { Table } from '../types';
+import { Table } from '../../types';
 
 const mockTables: Table[] = [
   { id: '1', number: 1, capacity: 2, status: 'available', section: 'Área Interna' },

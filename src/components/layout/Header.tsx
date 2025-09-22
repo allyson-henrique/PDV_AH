@@ -1,6 +1,6 @@
 import React from 'react';
 import { ShoppingCart, Users, BarChart3, ChefHat, Grid3X3, Monitor, X, LogOut, Settings } from 'lucide-react';
-import { View, Table, UserProfile } from '../types';
+import { View, Table, UserProfile } from '../../types';
 
 interface HeaderProps {
   currentView: View;

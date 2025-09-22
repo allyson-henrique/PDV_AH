@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ShoppingCart, CreditCard, User, Phone, Grid3X3, ArrowLeft } from 'lucide-react';
-import { CartItem as CartItemType, Table } from '../types';
+import { CartItem as CartItemType, Table } from '../../types';
 import { CartItem } from './CartItem';
 
 interface CartViewProps {

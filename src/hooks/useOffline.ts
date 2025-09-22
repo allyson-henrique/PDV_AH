@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { offlineManager } from '../services/offlineManager';
-import { appSyncService } from '../services/appSyncService';
+import { offlineManager } from '../../services/offlineManager';
+import { appSyncService } from '../../services/appSyncService';
 
 export const useOffline = () => {
   const [isOnline, setIsOnline] = useState(navigator.onLine);

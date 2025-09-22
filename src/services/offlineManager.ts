@@ -1,4 +1,4 @@
-import { Order, CartItem, PaymentInfo, Product } from '../types';
+import { Order, CartItem, PaymentInfo, Product } from '../../types';
 import { appSyncService } from './appSyncService';
 
 export class OfflineManager {

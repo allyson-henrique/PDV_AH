@@ -1,6 +1,6 @@
 import React from 'react';
 import { Wifi, WifiOff, RefreshCw, AlertCircle, CheckCircle } from 'lucide-react';
-import { useOffline } from '../hooks/useOffline';
+import { useOffline } from '../../hooks/useOffline';
 
 export const OfflineIndicator: React.FC = () => {
   const { isOnline, offlineStats, syncNow } = useOffline();

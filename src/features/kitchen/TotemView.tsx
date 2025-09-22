@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Bell, Clock, CheckCircle, AlertTriangle, Monitor } from 'lucide-react';
-import { Order } from '../types';
+import { Order } from '../../types';
 
 interface TotemViewProps {
   orders: Order[];

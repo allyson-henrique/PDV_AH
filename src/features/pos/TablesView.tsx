@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Plus, Filter, Users, Clock, Utensils, AlertCircle, Search } from 'lucide-react';
-import { Table } from '../types';
+import { Table } from '../../types';
 import { TableCard } from './TableCard';
 
 interface TablesViewProps {
